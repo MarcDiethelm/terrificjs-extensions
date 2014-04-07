@@ -38,6 +38,7 @@ Tc.Module.prototype.$$ = function $$(selector) {
 /**
  * Bind methods to Terrific module context.  Usage: this.bindAll(funcName [,funcName...])
  * @author Marc Diethelm <marc.diethelm@namics.com>
+ * @author Simon Harte <simon.harte@namics.com>
  * @param {...string} methods - Names of methods each as a param.
  * @return {boolean|undefined} - Returns true if binding succeeds, throws an exception otherwise.
  */
@@ -63,6 +64,7 @@ Tc.Module.prototype.bindAll = function bindAll(methods) {
 /**
  * Get the name of the Terrific module
  * @author Remo Brunschwiler <remo.brunschwiler@namics.com>
+ * @author Mathias Hayoz <mathias.hayoz@namics.com>
  * @returns {string} – Module name
  */
 Tc.Module.prototype.getName = function getName() {
