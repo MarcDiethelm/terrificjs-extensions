@@ -1,0 +1,32 @@
+{
+  "name": "terrificjs-extensions",
+  "version": "0.0.1",
+  "description": "Adds some sugar and enhancements to @brunschgi's excellent Terrificjs frontend framework",
+  "main": "null",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "grunt-contrib-jshint": "^0.10.0",
+    "jshint": "^2.5.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/MarcDiethelm/terrificjs-extensions.git"
+  },
+  "keywords": [
+    "terrificjs"
+  ],
+  "author": "Marc Diethelm",
+  "contributors": [
+    {
+      "name": "Simon Harte"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MarcDiethelm/terrificjs-extensions/issues"
+  },
+  "homepage": "https://github.com/MarcDiethelm/terrificjs-extensions"
+}

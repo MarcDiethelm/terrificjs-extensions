@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Simplify connector channel subscription
  *
@@ -48,8 +50,8 @@ Tc.Module.prototype.bindAll = function bindAll(methods) {
 
 	for (i; i < argLen; i++) {
 		methodName = args[i];
-		if (typeof this[methodName] == 'function') {
-			this[methodName] = $.proxy(this, methodName);
+		if (typeof this[methodName] === 'function') {
+			this[methodName] = jQuery.proxy(this, methodName);
 		}
 		else {
 			throw new TypeError('Tc.Module.' + this.getName() + '.' + methodName + ' is not a function');
@@ -98,7 +100,7 @@ Tc.Module.prototype.getName = function getName() {
 		// load the template - and be sure to cache the result.
 		var fn = !/\W/.test(str) ?
 			cache[str] = cache[str] ||
-				tmpl(document.getElementById(str).innerHTML) :
+				template(document.getElementById(str).innerHTML) :
 			// Generate a reusable function that will serve as a template
 			// generator (and which will be cached).
 			/*jshint -W054, -W014 */
