@@ -68,13 +68,15 @@ Tc.Module.prototype.bindAll = function bindAll(methods) {
 Tc.Module.prototype.getName = function getName() {
 	var property;
 	if (!this._modName) {
-		for (property in Tc.Module) {
+		findMod: for (property in Tc.Module) {
 			if (Tc.Module.hasOwnProperty(property) && property !== 'constructor' && this instanceof Tc.Module[property]) {
 				this._modName = property;
-				return property;
+				break findMod;
 			}
 		}
 	}
+	
+	return this._modName;
 };
 
 (function () {
