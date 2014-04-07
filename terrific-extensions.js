@@ -25,7 +25,7 @@ Tc.Module.prototype.subscribe = function subscribe(channels) {
  * Select elements in the module context. Usage: this.$$(selector)
  * @author Marc Diethelm <marc.diethelm@namics.com>
  * @param {string} selector
- * @returns {jQuery} – jQuery collection
+ * @returns {object} – jQuery collection
  *
  */
 Tc.Module.prototype.$$ = function $$(selector) {
