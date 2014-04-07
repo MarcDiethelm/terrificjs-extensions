@@ -64,3 +64,10 @@ This code incorporates a fix for single-quote usage.
 ```js
 this.template(str, data)
 ```
+
+## Contributing
+- Install Node.js
+- `npm install` Installs test dependencies
+- `npm test` Run JSHint
+
+[And follow these general rules](https://github.com/MarcDiethelm/contributing/blob/master/README.md)
