@@ -14,7 +14,7 @@ Adds some sugar and enhancements to @brunschgi's excellent Terrificjs frontend f
  * @param {array | string} channels - connector channels to subscribe to
 
 ```js
-this.subscribe(channels)
+this.subscribe(chanName [,chanName...])
 ```
 
 ### Tc.Module.prototype.$$
