@@ -11,10 +11,10 @@ Adds some sugar and enhancements to @brunschgi's excellent Terrificjs frontend f
  Because the second parameter to sandbox.subscribe() (this) often is forgotten.
  Plus, connecting to multiple channels requires you to call subscribe for every channel.
  * @author Simon Harte <simon.harte@namics.com>
- * @param {array | string} channels - connector channels to subscribe to
+ * @param {...string} channels - connector channels to subscribe to
 
 ```js
-this.subscribe(channels)
+this.subscribe(chanName [,chanName...])
 ```
 
 ### Tc.Module.prototype.$$

@@ -4,31 +4,28 @@
  * Because the second parameter to sandbox.subscribe() (this) often is forgotten.
  * Plus, connecting to multiple channels requires you to call subscribe for every channel.
  * @author Simon Harte <simon.harte@namics.com>
- * @param {array|string} channels - Connector channels to subscribe to
+ * @param {...string} channels - Connector channels to subscribe to
  */
 Tc.Module.prototype.subscribe = function subscribe(channels) {
-	// if channels is a string, assume it is a comma separated list of channels
-	// or simply just one channel which we turn into an array
-	if (typeof channels == 'string') {
-		channels = channels.split(',');
-	}
-
 	var i = 0,
-		len = channels.length,
-		chan;
+		args = arguments,
+		argLen = args.length,
+		channelName
+	;
 
-	for (i; i < len; i++) {
-		chan = channels[i];
+	for (i; i < argLen; i++) {
+		channelName = channels[i];
 
-		this.sandbox.subscribe(chan, this);
+		this.sandbox.subscribe(channelName, this);
 	}
+	return true;
 };
 
 /**
  * Select elements in the module context. Usage: this.$$(selector)
  * @author Marc Diethelm <marc.diethelm@namics.com>
  * @param {string} selector
- * @returns {jQuery} – jQuery collection
+ * @returns {object} – jQuery collection
  *
  */
 Tc.Module.prototype.$$ = function $$(selector) {
