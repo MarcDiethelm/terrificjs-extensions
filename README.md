@@ -11,7 +11,7 @@ Adds some sugar and enhancements to @brunschgi's excellent Terrificjs frontend f
  Because the second parameter to sandbox.subscribe() (this) often is forgotten.
  Plus, connecting to multiple channels requires you to call subscribe for every channel.
  * @author Simon Harte <simon.harte@namics.com>
- * @param {...string} channels - connector channels to subscribe to
+ * @param {...string} channels - Connector channels to subscribe to
 
 ```js
 this.subscribe(chanName [,chanName...])
@@ -29,6 +29,7 @@ this.$$(selector)
 ### Tc.Module.prototype.bindAll
  Bind methods to Terrific module context.  Usage: this.bindAll(funcName [,funcName...])
  * @author Marc Diethelm <marc.diethelm@namics.com>
+ * @author Simon Harte <simon.harte@namics.com>
  * @param {...string} methods - Names of methods each as a param.
  * @return {boolean|undefined} - Returns true if binding succeeds, throws an exception otherwise.
 
@@ -39,6 +40,7 @@ this.bindAll(funcName [,funcName...])
 ### Tc.Module.prototype.getName
 Get the name of the Terrific module
  * @author Remo Brunschwiler <remo.brunschwiler@namics.com>
+ * @author Mathias Hayoz <mathias.hayoz@namics.com>
  * @returns {string} – Module name
 
 ```js
