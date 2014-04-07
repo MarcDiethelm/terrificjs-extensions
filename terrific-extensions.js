@@ -4,7 +4,7 @@
  * Because the second parameter to sandbox.subscribe() (this) often is forgotten.
  * Plus, connecting to multiple channels requires you to call subscribe for every channel.
  * @author Simon Harte <simon.harte@namics.com>
- * @param {array | string} channels - connector channels to subscribe to
+ * @param {array|string} channels - Connector channels to subscribe to
  */
 Tc.Module.prototype.subscribe = function subscribe(channels) {
 	// if channels is a string, assume it is a comma separated list of channels
@@ -47,7 +47,7 @@ Tc.Module.prototype.bindAll = function bindAll(methods) {
 		args = arguments,
 		argLen = args.length,
 		methodName
-		;
+	;
 
 	for (i; i < argLen; i++) {
 		methodName = args[i];
