@@ -1,3 +1,8 @@
+/**
+ * https://github.com/MarcDiethelm/terrificjs-extensions
+ * Adds some sugar and enhancements to @brunschgi's excellent Terrificjs frontend framework.
+ */
+
 'use strict';
 
 /**
