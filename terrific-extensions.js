@@ -6,29 +6,6 @@
 'use strict';
 
 /**
- * Simplify connector channel subscription
- *
- * Because the second parameter to sandbox.subscribe() (this) often is forgotten.
- * Plus, connecting to multiple channels requires you to call subscribe for every channel.
- * @author Simon Harte <simon.harte@namics.com>
- * @param {...string} channels - Connector channels to subscribe to
- */
-Tc.Module.prototype.subscribe = function subscribe(channels) {
-	var i = 0,
-		args = arguments,
-		argLen = args.length,
-		channelName
-	;
-
-	for (i; i < argLen; i++) {
-		channelName = channels[i];
-
-		this.sandbox.subscribe(channelName, this);
-	}
-	return true;
-};
-
-/**
  * Select elements in the module context. Usage: this.$$(selector)
  * @author Marc Diethelm <marc.diethelm@namics.com>
  * @param {string} selector
