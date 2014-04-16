@@ -5,18 +5,6 @@ Adds some sugar and enhancements to @brunschgi's excellent Terrificjs frontend f
 
 ## Tc.Module extensions
 
-### Tc.Module.prototype.subscribe
- Simplify connector channel subscription
-
- Because the second parameter to sandbox.subscribe() (this) often is forgotten.
- Plus, connecting to multiple channels requires you to call subscribe for every channel.
- * @author Simon Harte <simon.harte@namics.com>
- * @param {...string} channels - Connector channels to subscribe to
-
-```js
-this.subscribe(chanName [,chanName...])
-```
-
 ### Tc.Module.prototype.$$
  Select elements in the module context. Usage: this.$$(selector)
  * @author Marc Diethelm <marc.diethelm@namics.com>
@@ -45,6 +33,18 @@ Get the name of the Terrific module
 
 ```js
 this.getName()
+```
+
+### Tc.Module.prototype.subscribe
+ Simplify connector channel subscription
+
+ Because the second parameter to sandbox.subscribe() (this) often is forgotten.
+ Plus, connecting to multiple channels requires you to call subscribe for every channel.
+ * @author Simon Harte <simon.harte@namics.com>
+ * @param {...string} channels - Connector channels to subscribe to
+
+```js
+this.subscribe(chanName [,chanName...])
 ```
 
 ### Tc.Module.prototype.template
