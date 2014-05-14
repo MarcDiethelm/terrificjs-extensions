@@ -36,7 +36,10 @@ Tc.Module.prototype.bindAll = function bindAll(methods) {
 			this[methodName] = jQuery.proxy(this, methodName);
 		}
 		else {
-			throw new TypeError('Tc.Module.' + this.getName() + '.' + methodName + ' is not a function');
+			if (typeof methodName === 'string')
+				throw new TypeError('bindAll: Tc.Module.' + this.getName() + '.' + methodName + ' is not a function');
+			else
+				throw new TypeError('Arguments to bindAll must be strings');
 		}
 	}
 	return true;
