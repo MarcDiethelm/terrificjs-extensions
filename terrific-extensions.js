@@ -1,9 +1,13 @@
 /**
  * https://github.com/MarcDiethelm/terrificjs-extensions
  * Adds some sugar and enhancements to @brunschgi's excellent Terrificjs frontend framework.
+ * @file terrificjs-extensions.js
+ * @license MIT
+ * @copyright 2014 Marc Diethelm
  */
 
 'use strict';
+
 
 /**
  * Select elements in the module context. Usage: this.$$(selector)
