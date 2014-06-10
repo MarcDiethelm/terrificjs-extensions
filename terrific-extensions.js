@@ -13,7 +13,7 @@
  * Select elements in the module context. Usage: this.$$(selector)
  * @author Marc Diethelm <marc.diethelm@namics.com>
  * @param {string} selector
- * @returns {object} – jQuery collection
+ * @returns {object} - jQuery collection
  *
  */
 Tc.Module.prototype.$$ = function $$(selector) {
@@ -54,7 +54,7 @@ Tc.Module.prototype.bindAll = function bindAll(methods) {
  * Get the name of the Terrific module
  * @author Remo Brunschwiler <remo.brunschwiler@namics.com>
  * @author Mathias Hayoz <mathias.hayoz@namics.com>
- * @returns {string} – Module name
+ * @returns {string} - Module name
  */
 Tc.Module.prototype.getName = function getName() {
 	var property;
@@ -104,7 +104,7 @@ Tc.Module.prototype.subscribe = function subscribe(channels) {
 	 * This code incorporates a fix for single-quote usage.
 	 * @author Marc Diethelm <marc.diethelm@namics.com>
 	 * @param {string} str - Template
-	 * @param {object} [data] – Optional, renders template immediately if present. Data to use as the template context for variable extrapolation.
+	 * @param {object} [data] - Optional, renders template immediately if present. Data to use as the template context for variable extrapolation.
 	 * @returns {function|string} - Template function, to render template with data, or if data was supplied already the rendered template.
 	 */
 	Tc.Module.prototype.template = function template(str, data) {
