@@ -49,7 +49,7 @@ this.subscribe(chanName [,chanName...])
 Micro-templating for modules. Extrapolates {{= foo }} variables in strings from data. Much smarter than string concatenation and massively smaller and faster than using a full-blown template engine.
 
 This function is a remix of
-- Simple JavaScript Templating – John Resig - http://ejohn.org/ - MIT Licensed
+- [Simple JavaScript Templating](http://ejohn.org/blog/javascript-micro-templating/) by John Resig
 - https://gist.github.com/topliceanu/1537847
 - http://weblog.west-wind.com/posts/2008/Oct/13/Client-Templating-with-jQuery
 
@@ -67,4 +67,4 @@ this.template(str, data)
 - `npm install` Installs test dependencies
 - `npm test` Run JSHint
 
-[And follow these general rules](https://github.com/MarcDiethelm/contributing/blob/master/README.md)
+[And follow these general rules](https://github.com/MarcDiethelm/contributing/blob/master/README.md).
