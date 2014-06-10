@@ -6,7 +6,7 @@ Adds some sugar and enhancements to @brunschgi's excellent Terrificjs frontend f
 ## Tc.Module extensions
 
 ### Tc.Module.prototype.$$
- Select elements in the module context. Usage: this.$$(selector)
+ Select elements in the module context.
  * @author Marc Diethelm <marc.diethelm@namics.com>
  * @param {string} selector
  * @returns {jQuery} – jQuery collection
@@ -15,11 +15,12 @@ Adds some sugar and enhancements to @brunschgi's excellent Terrificjs frontend f
 this.$$(selector)
 ```
 ### Tc.Module.prototype.bindAll
- Bind methods to Terrific module context.  Usage: this.bindAll(funcName [,funcName...])
+ Bind methods to Terrific module context. Commonly used on event handler functions.
+ Inspired by Underscore's [bindAll](http://underscorejs.org/#bindAll).
  * @author Marc Diethelm <marc.diethelm@namics.com>
  * @author Simon Harte <simon.harte@namics.com>
  * @param {...string} methods - Names of methods each as a param.
- * @return {boolean|undefined} - Returns true if binding succeeds, throws an exception otherwise.
+ * @return {boolean} - Returns true if binding succeeds, throws an exception otherwise.
 
 ```js
 this.bindAll(funcName [,funcName...])
@@ -38,8 +39,7 @@ this.getName()
 ### Tc.Module.prototype.subscribe
  Simplify connector channel subscription
 
- Because the second parameter to sandbox.subscribe() (this) often is forgotten.
- Plus, connecting to multiple channels requires you to call subscribe for every channel.
+ Simpler subscribe without need for the second parameter to sandbox.subscribe `this` which is often forgotten. Additionally this method allows connecting to multiple channels at once.
  * @author Simon Harte <simon.harte@namics.com>
  * @param {...string} channels - Connector channels to subscribe to
 
@@ -48,7 +48,7 @@ this.subscribe(chanName [,chanName...])
 ```
 
 ### Tc.Module.prototype.template
-Micro-templating for modules. Extrapolates {{= foo }} variables in strings from data. Can be used instead of string concatenation.
+Micro-templating for modules. Extrapolates {{= foo }} variables in strings from data. Much smarter than string concatenation and massively smaller and faster than using a full-blown template engine.
 
 This function is a remix of
 - Simple JavaScript Templating – John Resig - http://ejohn.org/ - MIT Licensed

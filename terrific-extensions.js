@@ -22,10 +22,11 @@ Tc.Module.prototype.$$ = function $$(selector) {
 
 /**
  * Bind methods to Terrific module context.  Usage: this.bindAll(funcName [,funcName...])
+ * Inspired by Underscore's bindAll. http://underscorejs.org/#bindAll
  * @author Marc Diethelm <marc.diethelm@namics.com>
  * @author Simon Harte <simon.harte@namics.com>
  * @param {...string} methods - Names of methods each as a param.
- * @return {boolean|undefined} - Returns true if binding succeeds, throws an exception otherwise.
+ * @return {boolean} - Returns true if binding succeeds, throws an exception otherwise.
  */
 Tc.Module.prototype.bindAll = function bindAll(methods) {
 	var i = 0,
@@ -72,8 +73,8 @@ Tc.Module.prototype.getName = function getName() {
 /**
  * Simplify connector channel subscription
  *
- * Because the second parameter to sandbox.subscribe() (this) often is forgotten.
- * Plus, connecting to multiple channels requires you to call subscribe for every channel.
+ * Because the second parameter to sandbox.subscribe `this` is often forgotten.
+ * Additionally this method allows connecting to multiple channels at once.
  * @author Simon Harte <simon.harte@namics.com>
  * @param {...string} channels - Connector channels to subscribe to
  */
