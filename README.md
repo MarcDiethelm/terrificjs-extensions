@@ -3,6 +3,10 @@ terrificjs-extensions
 
 Adds some sugar and enhancements to @brunschgi's excellent Terrificjs frontend framework.
 
+## Getting started
+
+Load the file [terrific-extensions.js](https://github.com/MarcDiethelm/terrificjs-extensions/blob/master/terrific-extensions.js) someplace after the Terrific library and before the application bootstrap.
+
 ## Tc.Module extensions
 
 ### Tc.Module.prototype.$$
