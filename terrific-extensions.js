@@ -26,7 +26,7 @@ Tc.Module.prototype.$$ = function $$(selector) {
  * @author Marc Diethelm <marc.diethelm@namics.com>
  * @author Simon Harte <simon.harte@namics.com>
  * @param {...string} methods - Names of methods each as a param.
- * @return {boolean} - Returns true if binding succeeds, throws an exception otherwise.
+ * @return {module} - Returns the module instance for chaining.
  */
 Tc.Module.prototype.bindAll = function bindAll(methods) {
 	var i = 0,
@@ -47,7 +47,8 @@ Tc.Module.prototype.bindAll = function bindAll(methods) {
 			throw new TypeError('Arguments to bindAll must be strings');
 		}
 	}
-	return true;
+	
+	return this;
 };
 
 /**
@@ -77,6 +78,7 @@ Tc.Module.prototype.getName = function getName() {
  * Additionally this method allows connecting to multiple channels at once.
  * @author Simon Harte <simon.harte@namics.com>
  * @param {...string} channels - Connector channels to subscribe to
+ * @return {module} - Returns the module instance for chaining.
  */
 Tc.Module.prototype.subscribe = function subscribe(channels) {
 	var i = 0,
@@ -90,7 +92,8 @@ Tc.Module.prototype.subscribe = function subscribe(channels) {
 
 		this.sandbox.subscribe(channelName, this);
 	}
-	return true;
+	
+	return this;
 };
 
 (function () {

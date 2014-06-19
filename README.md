@@ -21,7 +21,7 @@ this.$$(selector)
  Bind methods to Terrific module context. Commonly used on event handler functions.
  Inspired by Underscore's [bindAll](http://underscorejs.org/#bindAll).
  * `@param {...string} methods` – Names of methods each as a param.
- * `@return {boolean}` – Returns true if binding succeeds, throws an exception otherwise.
+ * `@return {module}` – Returns the module instance for chaining.
 
 ```js
 this.bindAll(funcName [,funcName...])
@@ -40,7 +40,8 @@ this.getName()
 
  Simpler subscribe without need for the second parameter to sandbox.subscribe `this` which is often forgotten. Additionally this method allows connecting to multiple channels at once.
  * `@param {...string} channels` – Connector channels to subscribe to
-
+ * `@return {module}` – Returns the module instance for chaining.
+ 
 ```js
 this.subscribe(chanName [,chanName...])
 ```
