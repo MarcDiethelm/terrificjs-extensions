@@ -86,7 +86,7 @@ Tc.Module.prototype.subscribe = function subscribe(channels) {
 	;
 
 	for (i; i < argLen; i++) {
-		channelName = channels[i];
+		channelName = args[i];
 
 		this.sandbox.subscribe(channelName, this);
 	}
