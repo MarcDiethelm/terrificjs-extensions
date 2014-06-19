@@ -1,103 +1,105 @@
-/**
- * https://github.com/MarcDiethelm/terrificjs-extensions
- * Adds some sugar and enhancements to @brunschgi's excellent Terrificjs frontend framework.
- * @file terrificjs-extensions.js
- * @license MIT
- * @copyright 2014 Marc Diethelm
- */
+(function () {
 
-'use strict';
+	/**
+	 * https://github.com/MarcDiethelm/terrificjs-extensions
+	 * Adds some sugar and enhancements to @brunschgi's excellent Terrificjs frontend framework.
+	 * @file terrificjs-extensions.js
+	 * @license MIT
+	 * @copyright 2014 Marc Diethelm
+	 */
+
+	'use strict';
 
 
-/**
- * Select elements in the module context. Usage: this.$$(selector)
- * @author Marc Diethelm <marc.diethelm@namics.com>
- * @param {string} selector
- * @returns {object} - jQuery collection
- *
- */
-Tc.Module.prototype.$$ = function $$(selector) {
-	return this.$ctx.find(selector);
-};
+	/**
+	 * Select elements in the module context. Usage: this.$$(selector)
+	 * @author Marc Diethelm <marc.diethelm@namics.com>
+	 * @param {string} selector
+	 * @returns {object} - jQuery collection
+	 *
+	 */
+	Tc.Module.prototype.$$ = function $$(selector) {
+		return this.$ctx.find(selector);
+	};
 
-/**
- * Bind methods to Terrific module context.  Usage: this.bindAll(funcName [,funcName...])
- * Inspired by Underscore's bindAll. http://underscorejs.org/#bindAll
- * @author Marc Diethelm <marc.diethelm@namics.com>
- * @author Simon Harte <simon.harte@namics.com>
- * @param {...string} methods - Names of methods each as a param.
- * @return {module} - Returns the module instance for chaining.
- */
-Tc.Module.prototype.bindAll = function bindAll(methods) {
-	var i = 0,
-		args = arguments,
-		argLen = args.length,
-		methodName
-	;
+	/**
+	 * Bind methods to Terrific module context.  Usage: this.bindAll(funcName [,funcName...])
+	 * Inspired by Underscore's bindAll. http://underscorejs.org/#bindAll
+	 * @author Marc Diethelm <marc.diethelm@namics.com>
+	 * @author Simon Harte <simon.harte@namics.com>
+	 * @param {...string} methods - Names of methods each as a param.
+	 * @return {module} - Returns the module instance for chaining.
+	 */
+	Tc.Module.prototype.bindAll = function bindAll(methods) {
+		var i = 0,
+			args = arguments,
+			argLen = args.length,
+			methodName
+		;
 
-	for (i; i < argLen; i++) {
-		methodName = args[i];
-		if (typeof this[methodName] === 'function') {
-			this[methodName] = jQuery.proxy(this, methodName);
-		}
-		else if (typeof methodName === 'string') {
-			throw new TypeError('bindAll: Tc.Module.' + this.getName() + '.' + methodName + ' is not a function');
-		}
-		else {
-			throw new TypeError('Arguments to bindAll must be strings');
-		}
-	}
-	
-	return this;
-};
-
-/**
- * Get the name of the Terrific module
- * @author Remo Brunschwiler <remo.brunschwiler@namics.com>
- * @author Mathias Hayoz <mathias.hayoz@namics.com>
- * @returns {string} - Module name
- */
-Tc.Module.prototype.getName = function getName() {
-	var property;
-	if (!this._modName) {
-		for (property in Tc.Module) {
-			if (Tc.Module.hasOwnProperty(property) && property !== 'constructor' && this instanceof Tc.Module[property]) {
-				this._modName = property;
-				break;
+		for (i; i < argLen; i++) {
+			methodName = args[i];
+			if (typeof this[methodName] === 'function') {
+				this[methodName] = jQuery.proxy(this, methodName);
+			}
+			else if (typeof methodName === 'string') {
+				throw new TypeError('bindAll: Tc.Module.' + this.getName() + '.' + methodName + ' is not a function');
+			}
+			else {
+				throw new TypeError('Arguments to bindAll must be strings');
 			}
 		}
-	}
-	
-	return this._modName;
-};
 
-/**
- * Simplify connector channel subscription
- *
- * Because the second parameter to sandbox.subscribe `this` is often forgotten.
- * Additionally this method allows connecting to multiple channels at once.
- * @author Simon Harte <simon.harte@namics.com>
- * @param {...string} channels - Connector channels to subscribe to
- * @return {module} - Returns the module instance for chaining.
- */
-Tc.Module.prototype.subscribe = function subscribe(channels) {
-	var i = 0,
-		args = arguments,
-		argLen = args.length,
-		channelName
-	;
+		return this;
+	};
 
-	for (i; i < argLen; i++) {
-		channelName = args[i];
+	/**
+	 * Get the name of the Terrific module
+	 * @author Remo Brunschwiler <remo.brunschwiler@namics.com>
+	 * @author Mathias Hayoz <mathias.hayoz@namics.com>
+	 * @returns {string} - Module name
+	 */
+	Tc.Module.prototype.getName = function getName() {
+		var property;
+		if (!this._modName) {
+			for (property in Tc.Module) {
+				if (Tc.Module.hasOwnProperty(property) && property !== 'constructor' && this instanceof Tc.Module[property]) {
+					this._modName = property;
+					break;
+				}
+			}
+		}
 
-		this.sandbox.subscribe(channelName, this);
-	}
-	
-	return this;
-};
+		return this._modName;
+	};
 
-(function () {
-	var cache = {};
+	/**
+	 * Simplify connector channel subscription
+	 *
+	 * Because the second parameter to sandbox.subscribe `this` is often forgotten.
+	 * Additionally this method allows connecting to multiple channels at once.
+	 * @author Simon Harte <simon.harte@namics.com>
+	 * @param {...string} channels - Connector channels to subscribe to
+	 * @return {module} - Returns the module instance for chaining.
+	 */
+	Tc.Module.prototype.subscribe = function subscribe(channels) {
+		var i = 0,
+			args = arguments,
+			argLen = args.length,
+			channelName
+		;
+
+		for (i; i < argLen; i++) {
+			channelName = args[i];
+
+			this.sandbox.subscribe(channelName, this);
+		}
+
+		return this;
+	};
+
+
+	var tplCache = {};
 	/**
 	 * Micro-templating for modules. Extrapolates {{= foo }} variables in strings from data.
 	 * This function is a remix of
@@ -115,7 +117,7 @@ Tc.Module.prototype.subscribe = function subscribe(channels) {
 		// Figure out if we're getting a template, or if we need to
 		// load the template - and be sure to cache the result.
 		var fn = !/\W/.test(str) ?
-			cache[str] = cache[str] ||
+			tplCache[str] = tplCache[str] ||
 				template(document.getElementById(str).innerHTML) :
 			// Generate a reusable function that will serve as a template
 			// generator (and which will be cached).
@@ -137,4 +139,5 @@ Tc.Module.prototype.subscribe = function subscribe(channels) {
 		// Provide some basic currying to the user
 		return data ? fn(data) : fn;
 	};
+	
 })();
