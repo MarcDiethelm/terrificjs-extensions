@@ -41,11 +41,9 @@
 			methodName = args[i];
 			if (typeof this[methodName] === 'function') {
 				this[methodName] = jQuery.proxy(this, methodName);
-			}
-			else if (typeof methodName === 'string') {
+			} else if (typeof methodName === 'string') {
 				throw new TypeError('bindAll: Tc.Module.' + this.getName() + '.' + methodName + ' is not a function');
-			}
-			else {
+			} else {
 				throw new TypeError('Arguments to bindAll must be strings');
 			}
 		}
@@ -85,14 +83,11 @@
 	Tc.Module.prototype.subscribe = function subscribe(channels) {
 		var i = 0,
 			args = arguments,
-			argLen = args.length,
-			channelName
+			argLen = args.length
 		;
 
 		for (i; i < argLen; i++) {
-			channelName = args[i];
-
-			this.sandbox.subscribe(channelName, this);
+			this.sandbox.subscribe(args[i], this);
 		}
 
 		return this;
