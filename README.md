@@ -9,14 +9,17 @@ Load the file [terrific-extensions.js](https://github.com/MarcDiethelm/terrificj
 
 ## Tc.Module extensions
 
-### Tc.Module.prototype.$$
+### Tc.Module.prototype.$
  Select elements in the module context.
  * `@param {string} selector`
  * `@returns {jQuery}` – jQuery collection
 
 ```js
-this.$$(selector)
+this.$(selector)
 ```
+### Tc.Module.prototype.$$
+deprecated, alias of Tc.Module.prototype.$
+
 ### Tc.Module.prototype.bindAll
  Bind methods to Terrific module context. Commonly used on event handler functions.
  Inspired by Underscore's [bindAll](http://underscorejs.org/#bindAll).
@@ -41,7 +44,7 @@ this.getName()
  Simpler subscribe without need for the second parameter to sandbox.subscribe `this` which is often forgotten. Additionally this method allows connecting to multiple channels at once.
  * `@param {...string} channels` – Connector channels to subscribe to
  * `@return {module}` – Returns the module instance for chaining.
- 
+
 ```js
 this.subscribe(chanName [,chanName...])
 ```

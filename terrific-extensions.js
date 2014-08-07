@@ -12,15 +12,26 @@
 
 
 	/**
-	 * Select elements in the module context. Usage: this.$$(selector)
+	 * Select elements in the module context. Usage: this.$(selector)
 	 * @author Marc Diethelm <marc.diethelm@namics.com>
 	 * @param {string} selector
 	 * @returns {object} - jQuery collection
-	 *
 	 */
-	Tc.Module.prototype.$$ = function $$(selector) {
+	Tc.Module.prototype.$ = function $$(selector) {
 		return this.$ctx.find(selector);
 	};
+
+
+	/**
+	* Deprecated. Use Tc.Module.prototype.$
+	* Select elements in the module context. Usage: this.$$(selector)
+	* @deprecated Use Tc.Module.prototype.$
+	* @see Tc.Module.prototype.$
+	* @author Marc Diethelm <marc.diethelm@namics.com>
+	* @param {string} selector
+	* @returns {object} - jQuery collection
+	*/
+	Tc.Module.prototype.$$ = Tc.Module.prototype.$;
 
 	/**
 	 * Bind methods to Terrific module context.  Usage: this.bindAll(funcName [,funcName...])
