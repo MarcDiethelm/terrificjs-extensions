@@ -137,7 +137,7 @@
 	Tc.Module.prototype.fireAll = function fireAll(method, data) {
 		var channels = this.getConnectors();
 
-		this.fire(method, data || {}, channels);
+		this.fire(method, data || null, channels);
 
 		return this;
 	};
