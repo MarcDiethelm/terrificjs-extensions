@@ -39,7 +39,7 @@
 	 * @author Marc Diethelm <marc.diethelm@namics.com>
 	 * @author Simon Harte <simon.harte@namics.com>
 	 * @param {...string} methods - Names of methods each as a param.
-	 * @return {object} - Returns the module instance for chaining.
+	 * @returns {object} module - Returns the module instance for chaining.
 	 */
 	Tc.Module.prototype.bindAll = function bindAll(methods) {
 		var i = 0,
@@ -89,7 +89,7 @@
 	 * Additionally this method allows connecting to multiple channels at once.
 	 * @author Simon Harte <simon.harte@namics.com>
 	 * @param {...string} channels - Connector channels to subscribe to
-	 * @return {object} - Returns the module instance for chaining
+	 * @returns {object} module - Returns the module instance for chaining
 	 */
 	Tc.Module.prototype.subscribe = function subscribe(channels) {
 		var i = 0,
