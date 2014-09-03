@@ -34,7 +34,7 @@
 	Tc.Module.prototype.$$ = Tc.Module.prototype.$;
 
 	/**
-	 * Bind methods to Terrific module context.  Usage: this.bindAll(funcName [,funcName...])
+	 * Bind methods to Terrific module context. Usage: this.bindAll(funcName [,funcName...])
 	 * Inspired by Underscore's bindAll. http://underscorejs.org/#bindAll
 	 * @author Marc Diethelm <marc.diethelm@namics.com>
 	 * @author Simon Harte <simon.harte@namics.com>
@@ -83,7 +83,7 @@
 	};
 
 	/**
-	 * Simplify connector channel subscription  Usage: this.subscribe(channelName [,channelName...])
+	 * Simplify connector channel subscription. Usage: this.subscribe(channelName [,channelName...])
 	 *
 	 * Because the second parameter to sandbox.subscribe `this` is often forgotten.
 	 * Additionally this method allows connecting to multiple channels at once.
@@ -127,7 +127,7 @@
 	};
 
 	/**
-	 * Fire on all channels the current module is subscribed to
+	 * Fire on all channels the current module is subscribed to. Usage: this.fireAll(method, [data])
 	 *
 	 * @author Simon Harte <simon.harte@namics.com>
 	 * @param {string} method - Function to execute in connected modules
