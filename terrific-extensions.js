@@ -6,7 +6,7 @@
  * @copyright 2014 Marc Diethelm
  */
 
-(function () {
+(function ($) {
 
 	'use strict';
 
@@ -51,7 +51,7 @@
 		for (i; i < argLen; i++) {
 			methodName = args[i];
 			if (typeof this[methodName] === 'function') {
-				this[methodName] = jQuery.proxy(this, methodName);
+				this[methodName] = $.proxy(this, methodName);
 			} else if (typeof methodName === 'string') {
 				throw new TypeError('bindAll: Tc.Module.' + this.getName() + '.' + methodName + ' is not a function');
 			} else {
@@ -183,4 +183,4 @@
 		return data ? fn(data) : fn;
 	};
 
-})();
+})($ || jQuery);
