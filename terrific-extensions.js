@@ -83,7 +83,7 @@
 	};
 
 	/**
-	 * Simplify connector channel subscription
+	 * Simplify connector channel subscription  Usage: this.subscribe(channelName [,channelName...])
 	 *
 	 * Because the second parameter to sandbox.subscribe `this` is often forgotten.
 	 * Additionally this method allows connecting to multiple channels at once.
