@@ -46,7 +46,7 @@ this.getName()
  * `@return {module}` – Returns the module instance for chaining.
 
 ```js
-this.subscribe(chanName [,chanName...])
+this.subscribe(channelName [,channelName...])
 ```
 
 ### Tc.Module.prototype.template
