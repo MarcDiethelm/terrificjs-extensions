@@ -104,6 +104,43 @@
 		return this;
 	};
 
+	/**
+	 * Get all channels the module is currently subscribed to
+	 *
+	 * @author Simon Harte <simon.harte@namics.com>
+	 * @return {object, string} channels - Returns the array of connected channels
+	 */
+	Tc.Module.prototype.getConnectors = function getConnectors() {
+		var channels = [],
+			chan,
+			curr;
+
+		for (chan in this.connectors) {
+			if (this.connectors.hasOwnProperty(chan)) {
+				curr = this.connectors[chan];
+				channels.push(curr.connectorId);
+			}
+		}
+		
+		return channels;
+	};
+
+	/**
+	 * Fire on all channels the current module is subscribed to
+	 *
+	 * @author Simon Harte <simon.harte@namics.com>
+	 * @param {string} method - Function to execute in connected modules
+	 * @param {object} [data] - The data to provide to your connected modules (optional)
+	 * @return {object} this - Returns the module instance for chaining
+	 */
+	Tc.Module.prototype.fireAll = function fireAll(method, data) {
+		var channels = this.getConnectors();
+
+		this.fire(method, data || {}, channels);
+
+		return this;
+	};
+
 
 	var tplCache = {};
 	/**
