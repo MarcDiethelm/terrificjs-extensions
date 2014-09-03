@@ -94,11 +94,17 @@
 	Tc.Module.prototype.subscribe = function subscribe(channels) {
 		var i = 0,
 			args = arguments,
-			argLen = args.length
+			argLen = args.length,
+			channelName
 			;
 
 		for (i; i < argLen; i++) {
-			this.sandbox.subscribe(args[i], this);
+			channelName = args[i];
+			if (typeof channelName !== 'string') {
+				throw new TypeError('Arguments to subscribe must be strings');
+			} else {
+				this.sandbox.subscribe(channelName, this);
+			}
 		}
 
 		return this;
