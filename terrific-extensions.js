@@ -23,14 +23,14 @@
 
 
 	/**
-	* Deprecated. Use Tc.Module.prototype.$
-	* Select elements in the module context. Usage: this.$$(selector)
-	* @deprecated Use Tc.Module.prototype.$
-	* @see Tc.Module.prototype.$
-	* @author Marc Diethelm <marc.diethelm@namics.com>
-	* @param {string} selector
-	* @returns {object} - jQuery collection
-	*/
+	 * Deprecated. Use Tc.Module.prototype.$
+	 * Select elements in the module context. Usage: this.$$(selector)
+	 * @deprecated Use Tc.Module.prototype.$
+	 * @see Tc.Module.prototype.$
+	 * @author Marc Diethelm <marc.diethelm@namics.com>
+	 * @param {string} selector
+	 * @returns {object} - jQuery collection
+	 */
 	Tc.Module.prototype.$$ = Tc.Module.prototype.$;
 
 	/**
@@ -39,14 +39,14 @@
 	 * @author Marc Diethelm <marc.diethelm@namics.com>
 	 * @author Simon Harte <simon.harte@namics.com>
 	 * @param {...string} methods - Names of methods each as a param.
-	 * @return {module} - Returns the module instance for chaining.
+	 * @return {object} - Returns the module instance for chaining.
 	 */
 	Tc.Module.prototype.bindAll = function bindAll(methods) {
 		var i = 0,
 			args = arguments,
 			argLen = args.length,
 			methodName
-		;
+			;
 
 		for (i; i < argLen; i++) {
 			methodName = args[i];
@@ -89,13 +89,13 @@
 	 * Additionally this method allows connecting to multiple channels at once.
 	 * @author Simon Harte <simon.harte@namics.com>
 	 * @param {...string} channels - Connector channels to subscribe to
-	 * @return {module} - Returns the module instance for chaining.
+	 * @return {object} - Returns the module instance for chaining
 	 */
 	Tc.Module.prototype.subscribe = function subscribe(channels) {
 		var i = 0,
 			args = arguments,
 			argLen = args.length
-		;
+			;
 
 		for (i; i < argLen; i++) {
 			this.sandbox.subscribe(args[i], this);
@@ -113,7 +113,8 @@
 	Tc.Module.prototype.getConnectors = function getConnectors() {
 		var channels = [],
 			chan,
-			curr;
+			curr
+			;
 
 		for (chan in this.connectors) {
 			if (this.connectors.hasOwnProperty(chan)) {
