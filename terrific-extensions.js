@@ -14,8 +14,8 @@
 	/**
 	 * Select elements in the module context. Usage: this.$(selector)
 	 * @author Marc Diethelm <marc.diethelm@namics.com>
-	 * @param {string} selector
-	 * @returns {object} - jQuery collection
+	 * @param {String} selector
+	 * @returns {Object} - jQuery collection
 	 */
 	Tc.Module.prototype.$ = function $$(selector) {
 		return this.$ctx.find(selector);
@@ -28,8 +28,8 @@
 	 * @deprecated Use Tc.Module.prototype.$
 	 * @see Tc.Module.prototype.$
 	 * @author Marc Diethelm <marc.diethelm@namics.com>
-	 * @param {string} selector
-	 * @returns {object} - jQuery collection
+	 * @param {String} selector
+	 * @returns {Object} - jQuery collection
 	 */
 	Tc.Module.prototype.$$ = Tc.Module.prototype.$;
 
@@ -38,8 +38,8 @@
 	 * Inspired by Underscore's bindAll. http://underscorejs.org/#bindAll
 	 * @author Marc Diethelm <marc.diethelm@namics.com>
 	 * @author Simon Harte <simon.harte@namics.com>
-	 * @param {...string} methods - Names of methods each as a param.
-	 * @returns {object} module - Returns the module instance for chaining.
+	 * @param {...String} methods - Names of methods each as a param.
+	 * @returns {Module} - Returns the module instance for chaining.
 	 */
 	Tc.Module.prototype.bindAll = function bindAll(methods) {
 		var i = 0,
@@ -66,7 +66,7 @@
 	 * Get the name of the Terrific module
 	 * @author Remo Brunschwiler <remo.brunschwiler@namics.com>
 	 * @author Mathias Hayoz <mathias.hayoz@namics.com>
-	 * @returns {string} - Module name
+	 * @returns {String} - Module name
 	 */
 	Tc.Module.prototype.getName = function getName() {
 		var property;
@@ -88,8 +88,8 @@
 	 * Because the second parameter to sandbox.subscribe `this` is often forgotten.
 	 * Additionally this method allows connecting to multiple channels at once.
 	 * @author Simon Harte <simon.harte@namics.com>
-	 * @param {...string} channels - Connector channels to subscribe to
-	 * @returns {object} module - Returns the module instance for chaining
+	 * @param {...String} channels - Connector channels to subscribe to
+	 * @returns {Module} - Returns the module instance for chaining
 	 */
 	Tc.Module.prototype.subscribe = function subscribe(channels) {
 		var i = 0,
@@ -113,9 +113,9 @@
 	 * - http://weblog.west-wind.com/posts/2008/Oct/13/Client-Templating-with-jQuery
 	 * This code incorporates a fix for single-quote usage.
 	 * @author Marc Diethelm <marc.diethelm@namics.com>
-	 * @param {string} str - Template
-	 * @param {object} [data] - Optional, renders template immediately if present. Data to use as the template context for variable extrapolation.
-	 * @returns {function|string} - Template function, to render template with data, or if data was supplied already the rendered template.
+	 * @param {String} str - Template
+	 * @param {Object} [data] - Optional, renders template immediately if present. Data to use as the template context for variable extrapolation.
+	 * @returns {Function|String} - Template function, to render template with data, or if data was supplied already the rendered template.
 	 */
 	Tc.Module.prototype.template = function template(str, data) {
 
