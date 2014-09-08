@@ -85,7 +85,7 @@
 	/**
 	 * Simplify connector channel subscription. Usage: this.subscribe(channelName [,channelName...])
 	 *
-	 * Because the second parameter to sandbox.subscribe `this` is often forgotten.
+	 * Because the second parameter to sandbox.subscribe (this) is often forgotten.
 	 * Additionally this method allows connecting to multiple channels at once.
 	 * @author Simon Harte <simon.harte@namics.com>
 	 * @param {...String} channels - Connector channels to subscribe to
@@ -100,11 +100,29 @@
 
 		for (i; i < argLen; i++) {
 			channelName = args[i];
-			if (typeof channelName !== 'string') {
-				throw new TypeError('Arguments to subscribe must be strings');
-			} else {
-				this.sandbox.subscribe(channelName, this);
-			}
+			this.sandbox.subscribe(channelName, this);
+		}
+
+		return this;
+	};
+
+	/**
+	 * Simplify unsubscribe of connector channel. Usage: this.unsubscribe(channelName [,channelName...])
+	 *
+	 * @author Simon Harte <simon.harte@namics.com>
+	 * @param {...String} channels - Connector channels to subscribe to
+	 * @returns {Module} - Returns the module instance for chaining
+	 */
+	Tc.Module.prototype.unsubscribe = function unsubscribe(channels) {
+		var i = 0,
+			args = arguments,
+			argLen = args.length,
+			channelName
+			;
+
+		for (i; i < argLen; i++) {
+			channelName = args[i];
+			this.sandbox.unsubscribe(channelName, this);
 		}
 
 		return this;
