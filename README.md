@@ -49,6 +49,17 @@ this.getName()
 this.subscribe(channelName [,channelName...])
 ```
 
+### Tc.Module.prototype.unsubscribe
+ Simplify unsubscribe of connector channel
+
+ Simpler unsubscribe without need for the second parameter to sandbox.unsubscribe `this` which is often forgotten. Additionally this method allows disconnecting from multiple channels at once.
+ * `@param {...string} channels` – Connector channels to subscribe to
+ * `@return {module}` – Returns the module instance for chaining.
+
+```js
+this.unsubscribe(channelName [,channelName...])
+```
+
 ### Tc.Module.prototype.template
 Micro-templating for modules. Extrapolates {{= foo }} variables in strings from data. Much smarter than string concatenation and massively smaller and faster than using a full-blown template engine.
 
