@@ -46,7 +46,7 @@
 			args = arguments,
 			argLen = args.length,
 			methodName
-			;
+		;
 
 		for (i; i < argLen; i++) {
 			methodName = args[i];
@@ -96,7 +96,7 @@
 			args = arguments,
 			argLen = args.length,
 			channelName
-			;
+		;
 
 		for (i; i < argLen; i++) {
 			channelName = args[i];
@@ -118,7 +118,7 @@
 			args = arguments,
 			argLen = args.length,
 			channelName
-			;
+		;
 
 		for (i; i < argLen; i++) {
 			channelName = args[i];
