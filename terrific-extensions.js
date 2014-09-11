@@ -169,4 +169,4 @@
 		return data ? fn(data) : fn;
 	};
 
-})($ || jQuery);
+})(Tc.$);
