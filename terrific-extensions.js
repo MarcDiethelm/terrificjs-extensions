@@ -106,28 +106,6 @@
 		return this;
 	};
 
-	/**
-	 * Simplify unsubscribe of connector channel. Usage: this.unsubscribe(channelName [,channelName...])
-	 *
-	 * @author Simon Harte <simon.harte@namics.com>
-	 * @param {...String} channels - Connector channels to subscribe to
-	 * @returns {Module} - Returns the module instance for chaining
-	 */
-	Tc.Module.prototype.unsubscribe = function unsubscribe(channels) {
-		var i = 0,
-			args = arguments,
-			argLen = args.length,
-			channelName
-		;
-
-		for (i; i < argLen; i++) {
-			channelName = args[i];
-			this.sandbox.unsubscribe(channelName, this);
-		}
-
-		return this;
-	};
-
 	var tplCache = {};
 	/**
 	 * Micro-templating for modules. Extrapolates {{= foo }} variables in strings from data.
