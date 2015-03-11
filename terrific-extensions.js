@@ -147,4 +147,71 @@
 		return data ? fn(data) : fn;
 	};
 
+	/**
+	 * Save template functions on the module instance using the Tc.Module.prototype.template method.
+	 * Either pass in an object with templates or rely on predefined templates in code (default) and/or markup (inline).
+	 * If no parameter is passed it will try to get a "templates" object defined on the module.
+	 *
+	 * Inline templates should be marked up as follows:
+	 *
+	 * <script type="text/x-dot-template" class="js-template" data-template="templateName"></script>
+	 *
+	 * Where "templateName" will be the property name on the returned object.
+	 * Note that the class name "js-template" is default but can be overwritten using a "selectors" object defined on the module:
+	 *
+	 * selectors: {
+	 *   template: '.your-custom-template-selector'
+	 * }
+	 *
+	 * @author Simon Harte <s.harte@namics.com>
+	 * @param {String|Object} [getTemplates] - 'all' | 'inline' | {}
+	 * @returns {{}}
+	 */
+	Tc.Module.prototype.registerTemplates = function registerTemplates(getTemplates) {
+		var templateFuncs = {},
+			isTemplatesObject = typeof getTemplates === 'object';
+
+		// if no valid parameter is passed
+		if (getTemplates != 'inline' && getTemplates != 'all' && !isTemplatesObject && getTemplates !== undefined) {
+			throw new TypeError('setupTemplates: optional parameter "getTemplates" must be either "inline", "all" or an object');
+		}
+
+		if (getTemplates == 'inline' || getTemplates == 'all') {
+			var _this = this,
+				selectors = this.selectors;
+
+			// take the template selector defined on module if present
+			this.$((selectors && selectors.template) || '.js-template').each(function (i, item) {
+				var $target = $(item),
+					templateName = $target.data('template'),
+					template = $target.html();
+
+				// use Tc.Module.Prototype.template
+				templateFuncs[templateName] = _this.template(template);
+			});
+		}
+		if (!getTemplates || getTemplates == 'all' || isTemplatesObject) {
+			var templates = isTemplatesObject ? getTemplates : this.templates;
+
+			if (templates) {
+				if (typeof templates !== 'object') {
+					throw new TypeError('setupTemplates: template collection for module ' + this.getName() + ' must be an object');
+				} else {
+					var templateName;
+
+					for (templateName in templates) {
+						if (templates.hasOwnProperty(templateName)) {
+							// use Tc.Module.Prototype.template
+							templateFuncs[templateName] = this.template(templates[templateName]);
+						}
+					}
+				}
+			} else {
+				throw new ReferenceError('setupTemplates: module ' + this.getName() + ' has no templates');
+			}
+		}
+
+		return templateFuncs;
+	}
+
 })(Tc.$);
